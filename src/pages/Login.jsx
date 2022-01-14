@@ -2,6 +2,25 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Input, Button } from '../components';
 import { setDefaultLocalStorage } from '../services/localStorageFunctions';
+import styled from 'styled-components';
+
+const Nav = styled.nav`
+  background: #C4C4C4;
+  display: flex-box;
+  position: fixed;
+  padding: 15px;
+  align-items: center;
+  text-align: center;
+  align-content: center;
+  width: 100%;
+`;
+
+const Form = styled.form`;
+  padding: 5px;
+  align-items: center;
+  text-align: center;
+  align-content: center;
+`;
 
 const Login = () => {
   const [login, setLogin] = useState({
@@ -39,31 +58,34 @@ const Login = () => {
 
   return (
     <main>
-      <form onSubmit={ handleSubmit }>
-        <Input
-          type="email"
-          id="email-input"
-          name="email"
-          className="emailInput"
-          placeholder="E-mail"
-          onChange={ handleChange }
-        />
-        <Input
-          type="password"
-          id="password-input"
-          name="password"
-          className="passwordInput"
-          placeholder="Senha"
-          onChange={ handleChange }
-        />
-        <Button
-          className="buttonLogin"
-          id="login-submit-btn"
-          type="submit"
-          buttonText="Login"
-          disabled={ !disableButton }
-        />
-      </form>
+      <Nav>
+        <h1>Recipes App Project</h1>
+        <Form onSubmit={ handleSubmit }>
+          <Input
+            type="email"
+            id="email-input"
+            name="email"
+            className="emailInput"
+            placeHolder="E-mail"
+            onChange={ handleChange }
+          />
+          <Input
+            type="password"
+            id="password-input"
+            name="password"
+            className="passwordInput"
+            placeHolder="Senha"
+            onChange={ handleChange }
+          />
+          <Button
+            className="buttonLogin"
+            id="login-submit-btn"
+            type="submit"
+            buttonText="Login"
+            disabled={ !disableButton }
+          />
+        </Form>
+      </Nav>
     </main>
   );
 };
